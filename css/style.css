@@ -640,6 +640,139 @@
     padding: 2em 1em;
   }
 }
+.products-list-content {
+  padding: 2em 0;
+}
+.products-list-content a {
+  color: inherit;
+  opacity: 1;
+}
+.products-list-content a:hover, .products-list-content a:focus {
+  color: inherit;
+  text-decoration: none;
+  opacity: 1;
+}
+.products-list-content .row {
+  display: flex;
+  justify-content: center;
+}
+.products-list-content .title-content {
+  padding: 2em;
+}
+.products-list-content .item-content {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.products-list-content .item-content .item {
+  padding: 10px 20px;
+  height: 550px;
+  max-width: 550px;
+  min-width: 320px;
+  overflow: hidden;
+}
+.products-list-content .item-content .item:hover .image-content {
+  right: 20px;
+}
+.products-list-content .item-content .item:hover .text-content {
+  padding: 365px 20px 20px 40px;
+}
+.products-list-content .item-content .item .image-content {
+  height: 350px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 2;
+  padding: 0 20px 0 0;
+  width: 90%;
+  transition: all 0.3s;
+  text-align: center;
+}
+.products-list-content .item-content .item .image-content img {
+  height: 100%;
+  min-height: 100%;
+  width: auto;
+}
+.products-list-content .item-content .item .text-content {
+  height: 100%;
+  padding: 360px 20px 20px 40px;
+  margin-top: 50px;
+  position: relative;
+  transition: all 0.3s;
+  background-color: #f5f1ed;
+}
+.products-list-content .item-content .item .text-content .category {
+  position: absolute;
+  top: 320px;
+  right: 20px;
+  display: inline-flex;
+}
+.products-list-content .item-content .item .text-content .category .item-category {
+  transition: all 0.3s;
+  font-size: 12px;
+  background-color: #f6e0b0;
+  color: #fff;
+  padding: 4px 15px;
+  border-radius: 7px;
+  letter-spacing: 0.1em;
+  margin: 0 2px;
+}
+.products-list-content .item-content .item .text-content h4, .products-list-content .item-content .item .text-content .h4 {
+  font-size: 1.4em;
+  color: #000;
+}
+.products-list-content .item-content .item .text-content p {
+  font-size: 0.8em;
+}
+.products-list-content .item-content .item .link {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+}
+.products-list-content .item-content .item .price {
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+}
+.products-list-content .item-content .item .price .badge-price {
+  font-size: 20px;
+  color: #464646;
+}
+
+@media (max-width: 1199.98px) {
+  .products-list-content h4, .products-list-content .h4 {
+    font-size: 1.2em;
+  }
+  .products-list-content .item {
+    height: 600px !important;
+  }
+}
+@media (max-width: 992px) {
+  .products-list-content {
+    padding: 1em;
+  }
+  .products-list-content .item {
+    padding: 20px !important;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .products-list-content {
+    padding: 1em;
+  }
+  .products-list-content .item {
+    padding: 20px !important;
+    height: 600px !important;
+  }
+  .products-list-content .item h4, .products-list-content .item .h4 {
+    font-size: 1em !important;
+    color: #000;
+  }
+}
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

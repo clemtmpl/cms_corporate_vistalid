@@ -20,5 +20,50 @@
     <a href="catalogue.html">Catalogue</a>
 </nav>
 
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} products-list-content">
+    <div class="container title-content" data-aos="fade-up">
+        {{ text|raw }}
+    </div>
+    <div class="container-fluid item-content">
+        <div class="row col-md-12">
+            {% for product in products %}
+            <div class="item col-sm-12 col-md-12 col-lg-4" data-aos="fade-down" data-aos-delay="{{ loop.index }}00">
+                <a href="{{ path(product) }}">
+                    <div class="image-content">
+                        {% if product.image %}
+                        {% media product.image, 'medium' %}
+                        {% else %}
+                        {% image 'bundles/template/templates/default/images/products/empty.png' output="images/empty.png" %}
+                        <img src="{{ asset_url }}" alt="empty image" title="empty image">
+                        {% endimage %}
+                        {% endif %}
+                    </div>
+                    <div class="col-12 text-content">
+                        <div class="category" data-aos="fade-left" data-aos-delay="200">
+                            <div class="item-category">
+                                <strong>{{ product.productCategory.name|raw }}</strong>
+                            </div>
+                        </div>
+                        <h4 data-aos="fade-up" data-aos-delay="200">{{ product.name|raw }}</h4>
+                    </div>
+                    {% if product.price %}
+                    <div class="price" data-aos="fade-right" data-aos-delay="200">
+                        <div class="badge badge-price">{{ product.price }} {{ 'vistalid.product.currency_label'|trans({}, 'default_template') }}</div>
+                    </div>
+                    {% endif %}
+                </a>
+            </div>
+            {% if loop.index is divisible by(3) %}
+        </div>
+        <div class="row col-md-12">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </body>
 </html>
