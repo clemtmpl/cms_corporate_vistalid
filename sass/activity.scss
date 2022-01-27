@@ -1,0 +1,50 @@
+.activity-content {
+  padding: 5em;
+
+
+  .bloc-content {
+    padding: 1em;
+    transition: all 0.3s;
+    overflow: hidden;
+
+    &:hover {
+      padding-top: 0.5em;
+    }
+
+    .bloc-content-card{
+      width: 100%;
+      padding: 1em;
+      position: relative;
+      -webkit-box-shadow: 10px 10px 0px -3px #D9D9D9;
+      box-shadow: 10px 10px 0px -3px #D9D9D9;
+      background-color: #e2e2e2;
+
+      .activity-card-text{
+        width: 85%;
+        margin: auto;
+      }
+
+      .activity-card-btn{
+        text-align: right;
+
+        a{
+          color: #141414;
+          font-weight: 500;
+          font-style: italic;
+        }
+      }
+    }
+
+  }
+
+}
+
+// Small devices (landscape phones, less than 1200px)
+@media (max-width: 1200px) {
+
+}
+
+// Small devices (landscape phones, less than 575.98px)
+@media (max-width: 575.98px) {
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    AOS.init();
+  </script>
+</head>
+<body>
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="slider.html">Slider</a>
+  <a href="activity.html">Activity</a>
+  <a href="two_columns.html">Two Columns</a>
+  <a href="image-full-width-text.html">Image Full Width</a>
+</nav>
+<div {% if id %} id="{{ id }}" {% endif %} class="{{ config.class }} image-full-width-text-content">
+
+  {% if text_justify == 'left' %}
+  {% set justifyText = "justify-content: flex-start" %}
+  {% elseif text_justify == 'center' %}
+  {% set justifyText = "justify-content: center" %}
+  {% else %}
+  {% set justifyText = "justify-content: flex-end" %}
+  {% endif %}
+
+  <div class="container-fluid"
+       {% if media %}
+       style="background: url('{% path media, 'large' %}') no-repeat center center; background-size: cover;"
+       {% endif %}
+  >
+
+    <div class="text-content" style="{{ justifyText }}">
+      <span class="apostrophe_courbe" data-aos="zoom-in"></span>
+      <div class="col-md-6" data-aos="fade-up">
+        {{ text|raw }}
+        <div class="btn-content">
+          {% if displayLink %}
+          <div class="row d-flex p-3">
+            <a href="{{ path(page) }}"
+               class="btn btn-image-full-width-text">{{ call_to_action_button }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

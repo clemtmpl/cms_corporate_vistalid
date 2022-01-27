@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+</nav>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} gallery-content">
+    <div class="container title-content" data-aos="fade-up">
+        {{ text|raw }}
+    </div>
+    {% if type == 'type_1' %}
+    <div class="row gallery-type-3">
+        {% for slide in slider.slides %}
+        <div class="col-lg-3 col-md-6 col-sm-6 item grid gallery-card" data-aos="fade-up">
+            <a href="{% path slide.media, 'large' %}" data-lightbox="{{ slider.name }}"
+               data-title="{{ slide.media.name }}">
+                <figure class="effect-{{ animation|lower }} d-flex align-items-center justify-content-center">
+                    {% media slide.media, 'medium' %}
+                    <figcaption>
+                        <div class="gallery-card-content">
+                            <div class="gallery-card-text">
+                                <p>{{ slide.text }}</p>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="btn-gallery">
+        <a href="#">View more</a>
+    </div>
+</div>
+</body>
+</html>

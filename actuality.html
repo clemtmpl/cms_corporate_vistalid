@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="actuality.html">Actuality</a>
+</nav>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} articles-list-content">
+    <div class="container title-content" data-aos="fade-down">
+        {{ text|raw }}
+    </div>
+
+    <div class="container-fluid item-content">
+        <div class="row row-eq-height">
+            {% for article in articles %}
+            <div class="col-lg-3 col-md-6 col-sm-6 flip-card">
+                <a href="{{ path(article) }}">
+                    <div class="flip-card-inner" data-aos="fade-up">
+                        <div class="flip-card-front">
+                            <div class="flip-card-front-img">
+                                {% if article.image %}
+                                {% media article.image, 'medium' %}
+                                {% else %}
+                                {% image 'bundles/template/templates/default/images/articles/empty.png'
+                                output="images/empty.png" %}
+                                <img src="{{ asset_url }}" alt="empty image" title="empty image">
+                                {% endimage %}
+                                {% endif %}
+                            </div>
+                            <div class="flip-card-front-text">
+                                <div class="flip-card-date-content">
+                                    <span>{{ 'vistalid.article.date'|trans({}, 'default_template') }} {{ article.publishStartDate|date("d-m-y", "Europe/Paris") }}</span>
+                                </div>
+                                <div class="flip-card-title-content">
+                                    <h4>{{ article.title|truncate(30, '...')|raw }}</h4>
+                                </div>
+                                <div class="btn btn-article">{{ 'vistalid.article.link'|trans({}, 'default_template') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card-back">
+                            <div class="text-content">
+                                <div class="category">
+                                    <div class="item-category">
+                                        <strong>{{ article.postCategory.name }}</strong>
+                                    </div>
+                                </div>
+                                <div class="date-content">
+                                    <span>{{ 'vistalid.article.date'|trans({}, 'default_template') }} {{ article.publishStartDate|date("d-m-y", "Europe/Paris") }}</span>
+                                </div>
+                                <div class="title-content">
+                                    <h4>{{ article.title|truncate(30, '...')|raw }}</h4>
+                                </div>
+                            </div>
+                            <div class="btn btn-article">{{ 'vistalid.article.link'|trans({}, 'default_template') }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% if loop.index is divisible by(4) %}
+        </div>
+        <div class="row row-eq-height">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="btn section-btn-article">
+        <a href="#">View More</a>
+    </div>
+</div>
+
+
+</body>
+</html>

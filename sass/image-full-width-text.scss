@@ -1,0 +1,35 @@
+.image-full-width-text-content {
+  position: relative;
+
+
+  .text-content {
+    padding: 5%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+    .apostrophe_courbe{
+      position: absolute;
+      background-image: url("../img/left-quote.png");
+      background-repeat: no-repeat;
+      left: 5px;
+      top: 5px;
+      width: 64px;
+      height: 64px;
+    }
+
+  }
+
+  .btn-content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .image-full-width-text-content {
+    .text-content {
+      padding: 10%;
+    }
+  }
+}

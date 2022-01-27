@@ -1,0 +1,76 @@
+.carousel-fade {
+  height: 93vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.carousel-fade .carousel-inner {
+  position: relative;
+  background-color: black;
+  height: 93vh;
+  width: 150vh;
+}
+.carousel-fade .carousel-inner .carousel-inner-bloc-color {
+  top: 0;
+  left: 0;
+  background-color: #ddb892;
+  height: 9vh;
+  width: 25vh;
+  position: absolute;
+}
+.carousel-fade .bloc-slide-direction {
+  position: relative;
+  float: left;
+  display: block;
+  width: 10vh;
+  height: 80vh;
+  background-color: #ddb892;
+}
+.carousel-fade .bloc-slide-direction .carousel-arrow-content {
+  height: 26vh;
+  width: 100%;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-gen {
+  height: 13vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-gen:hover {
+  opacity: 0.7;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-gen .carousel-control-prev-icon img {
+  transform: rotate(180deg);
+  width: 30px;
+  height: auto;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-gen .carousel-control-next-icon img {
+  width: 30px;
+  height: auto;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-prev {
+  background-color: #b08968;
+}
+.carousel-fade .bloc-slide-direction .carousel-control-next {
+  background-color: #7f5539;
+}
+.carousel-fade .bloc-slide-direction .indicators-circle {
+  width: 100%;
+  position: relative;
+  height: 54vh;
+}
+.carousel-fade .bloc-slide-direction .indicators-circle .carousel-indicators {
+  position: absolute;
+  bottom: 1%;
+  width: 100%;
+}
+.carousel-fade .bloc-slide-direction .indicators-circle .carousel-indicators li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #515151;
+  margin: 2vh auto;
+}
+
+/*# sourceMappingURL=slider.css.map */
