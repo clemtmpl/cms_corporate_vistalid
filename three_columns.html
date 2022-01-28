@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    AOS.init();
+  </script>
+</head>
+<body>
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="slider.html">Slider</a>
+  <a href="activity.html">Activity</a>
+  <a href="two_columns.html">Two Columns</a>
+  <a href="image-full-width-text.html">Image Full Width</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="actuality.html">Actuality</a>
+  <a href="catalogue.html">Catalogue</a>
+  <a href="three_columns.html">Three Columns</a>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} three-columns-content">
+  <div class="row row-eq-height">
+    <div class="col-md-12 col-lg-4 image-content" data-aos="fade-right"
+         {% if media %}
+         style="background: url('{% path media, 'large' %}') no-repeat center center; background-size: cover;"
+         {% endif %}
+    >
+    </div>
+    <div class="col-md-12 col-lg-4 three-columns-text-content"
+         {% if displayBackgroundMedia and BackgroundMedia %}
+         style="background: url('{% path BackgroundMedia, 'large' %}') no-repeat center center; background-size: cover;"
+         {% endif %}
+    >
+      <div class="bloc-color-vrtcl-top"></div>
+      <div class="bloc-color-hrztl-top"></div>
+      <div class="bloc-color-vrtcl-bottom"></div>
+      <div class="bloc-color-hrztl-bottom"></div>
+      {{ text|raw }}
+      {% if displayLink %}
+      <div class="row btn-content p-3" data-aos="fade-up">
+        <a href="{{ path(page) }}" class="btn btn-three-columns">{{ call_to_action_button }}</a>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-md-12 col-lg-4 image-content" data-aos="fade-left"
+         {% if media_2 %}
+         style="background: url('{% path media_2, 'large' %}') no-repeat center center; background-size: cover;"
+         {% endif %}
+    >
+    </div>
+  </div>
+</div>
+</body>
+</html>

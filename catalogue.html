@@ -28,17 +28,22 @@
     <div class="container title-content" data-aos="fade-up">
         {{ text|raw }}
     </div>
+    <div class="btn btn-section-catalogue">
+        <a href="#">View more</a>
+    </div>
     <div class="container-fluid item-content">
         <div class="row col-md-12">
             {% for product in products %}
-            <div class="item col-sm-12 col-md-12 col-lg-4" data-aos="fade-down" data-aos-delay="{{ loop.index }}00">
+            <div class="item col-sm-12 col-md-12 col-lg-3" data-aos="fade-down" data-aos-delay="{{ loop.index }}00">
                 <a href="{{ path(product) }}">
                     <div class="image-content">
                         {% if product.image %}
                         {% media product.image, 'medium' %}
                         {% else %}
                         {% image 'bundles/template/templates/default/images/products/empty.png' output="images/empty.png" %}
-                        <img src="{{ asset_url }}" alt="empty image" title="empty image">
+                        <div class="item-image-content">
+                            <img src="{{ asset_url }}" alt="empty image" title="empty image">
+                        </div>
                         {% endimage %}
                         {% endif %}
                     </div>

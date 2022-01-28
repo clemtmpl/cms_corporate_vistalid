@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="actuality.html">Actuality</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="three_columns.html">Three Columns</a>
+    <a href="three_columns2.html">Three Columns2</a>
+</nav>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} three-columns-2-content">
+    <div class="row row-eq-height">
+        <div class="col-lg-4 col-md-12 text-content" data-aos="fade-right"
+             {% if displayBackgroundMediaLeft and BackgroundMediaLeft %}
+             style="background: url('{% path BackgroundMediaLeft, 'large' %}') no-repeat center center; background-size: cover;"
+             {% endif %}
+        >
+            <div class="bloc-color-vrtcl-top"></div>
+            <div class="bloc-color-hrztl-top"></div>
+            <div class="bloc-color-vrtcl-bottom"></div>
+            <div class="bloc-color-hrztl-bottom"></div>
+            <div class=""></div>
+            {{ text_left|raw }}
+        </div>
+        <div class="col-lg-4 col-md-12 image-content" data-aos="fade-top"
+             {% if media %}
+             style="background: url('{% path media, 'large' %}') no-repeat center center; background-size: cover;"
+             {% endif %}
+        >
+        </div>
+        <div class="col-lg-4 col-md-12 text-content" data-aos="fade-left"
+             {% if displayBackgroundMediaRight and BackgroundMediaRight %}
+             style="background: url('{% path BackgroundMediaRight, 'large' %}') no-repeat center center; background-size: cover;"
+             {% endif %}
+        >
+            <div class="right-bloc-color-vrtcl-top"></div>
+            <div class="right-bloc-color-hrztl-top"></div>
+            <div class="right-bloc-color-vrtcl-bottom"></div>
+            <div class="right-bloc-color-hrztl-bottom"></div>
+            {{ text_right|raw }}
+        </div>
+    </div>
+</div>
+</body>
+</html>

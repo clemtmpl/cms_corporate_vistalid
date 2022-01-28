@@ -1,0 +1,156 @@
+.three-columns-2-content {
+  overflow: hidden;
+
+  .text-content {
+    padding: 4em;
+    position: relative;
+
+    // Angles de couleurs textes de gauche
+
+    // Angles de couleur top gauche
+
+    .bloc-color-hrztl-top{
+      position: absolute;
+      height: 8%;
+      width: 50%;
+      background-color: #b08968;
+      top: 0;
+      right: 0;
+    }
+
+    .bloc-color-vrtcl-top{
+      position: absolute;
+      height: 30%;
+      width: 5%;
+      background-color: #b08968;
+      top: 0;
+      right: 0;
+    }
+
+    // Angles de couleur bottom gauche
+
+    .bloc-color-hrztl-bottom{
+      position: absolute;
+      height: 8%;
+      width: 50%;
+      background-color: #d2d2d2;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bloc-color-vrtcl-bottom{
+      position: absolute;
+      height: 30%;
+      width: 5%;
+      background-color: #d2d2d2;
+      bottom: 0;
+      left: 0;
+    }
+
+    // Angles de couleurs textes de droite
+
+    // Angles de couleur top droit
+
+    .right-bloc-color-hrztl-top{
+      position: absolute;
+      height: 8%;
+      width: 50%;
+      background-color: #b08968;
+      left: 0;
+      top: 0;
+    }
+
+    .right-bloc-color-vrtcl-top{
+      position: absolute;
+      height: 30%;
+      width: 5%;
+      background-color: #b08968;
+      top: 0;
+      left: 0;
+    }
+
+    // Angles de couleur bottom droit
+
+    .right-bloc-color-hrztl-bottom{
+      position: absolute;
+      height: 8%;
+      width: 50%;
+      background-color: #d2d2d2;
+      bottom: 0;
+      right: 0;
+    }
+
+    .right-bloc-color-vrtcl-bottom{
+      position: absolute;
+      height: 30%;
+      width: 5%;
+      background-color: #d2d2d2;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .image-content{
+    background-color: black;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .three-columns-2-content {
+    .text-content{
+      min-height: 300px;
+
+      // Angles de couleurs textes de gauche
+
+      // Angles de couleur top gauche
+
+      .bloc-color-hrztl-top{
+        height: 8%;
+        width: 85%;
+      }
+
+      .bloc-color-vrtcl-top{
+        height: 30%;
+        width: 5%;
+      }
+
+      // Angles de couleur bottom gauche
+
+      .bloc-color-hrztl-bottom{
+        height: 8%;
+        width: 85%;
+      }
+
+      .bloc-color-vrtcl-bottom{
+        height: 30%;
+        width: 5%;
+      }
+
+      // Angles de couleurs textes de droite
+
+      // Angles de couleur top droit
+
+      .right-bloc-color-hrztl-top{
+        height: 8%;
+        width: 85%;
+      }
+
+      .right-bloc-color-vrtcl-top{
+        height: 30%;
+        width: 5%;
+      }
+
+      // Angles de couleur bottom droit
+
+      .right-bloc-color-hrztl-bottom{
+        height: 8%;
+        width: 85%;
+      }
+
+      .right-bloc-color-vrtcl-bottom{
+        height: 30%;
+        width: 5%;
+      }
+    }
+  }
+}
