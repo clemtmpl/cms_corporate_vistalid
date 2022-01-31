@@ -1,0 +1,138 @@
+.guest-book-content {
+  padding: 2em 0;
+  margin: 0;
+
+  .carousel-guest-books {
+    position: relative;
+    transition: 0.3s ease-out;
+    min-height: 300px;
+    width: 100%;
+    background-color: #b08968;
+    display: flex;
+    align-items: center;
+
+    .carousel-inner {
+      padding: 1em 6em;
+
+      h2 {
+        width: 100%;
+        font-size: 4vh;
+        padding: 1em 0;
+        font-weight: 800;
+      }
+
+      .text-content {
+        padding: 0;
+
+        .background-text {
+          color: #f9fafb;
+
+          .name {
+            color: black;
+          }
+        }
+      }
+    }
+
+    .carousel-move-arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 18vh;
+      height: 8vh;
+
+      .carousel-control-prev-icon, .carousel-control-next-icon {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100% 100%;
+      }
+
+      .next-guest-books, .prev-guest-books {
+        width: 9vh;
+      }
+
+      .prev-guest-books {
+        background-color: #d2a47c;
+      }
+
+      .next-guest-books {
+        background-color: #8a6c52;
+      }
+    }
+  }
+
+  .not-found-content {
+    padding: 50px;
+    margin: 30px 0 0 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+
+    .not-found {
+      font-size: 15px;
+      text-transform: initial;
+      letter-spacing: 0;
+      font-weight: 100;
+    }
+  }
+
+  button:focus {
+    outline: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 992px) {
+  .carousel-guest-books {
+
+    .carousel-inner {
+      padding: 1em;
+
+      h2 {
+        width: 100%;
+        font-size: 2vh;
+        padding: 3vh 0;
+        font-weight: 800;
+      }
+    }
+    .carousel-move-arrow {
+      width: 14vh;
+      height: 7vh;
+
+
+      .next-guest-books, .prev-guest-books {
+        width: 7vh;
+      }
+    }
+  }
+}
+
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) {
+    .guest-book-content {
+      padding: 2em 0;
+    }
+  }
+
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) and (max-width: 767.98px) {
+
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) and (max-width: 991.98px) {
+
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+
+  }

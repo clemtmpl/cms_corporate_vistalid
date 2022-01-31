@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="actuality.html">Actuality</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="three_columns.html">Three Columns</a>
+    <a href="three_columns2.html">Three Columns2</a>
+    <a href="guest_books.html">Avis clients</a>
+</nav>
+<div {% if id %}
+     id="{{ id }}"
+     {% endif %}
+     class="{{ config.class }} guest-book-content"
+     {% if displayBackgroundPattern and mediaBackgroundPattern %}
+     style="background: url('{% path mediaBackgroundPattern, 'large' %}') no-repeat center center; background-size: cover;"
+     {% endif %}
+>
+    <div class="text-content" data-aos="fade-up">
+        {{ text|raw }}
+    </div>
+
+    <div id="guest-book" class="item-content" data-aos="fade-down">
+        {%- for comment in comments -%}
+
+        <div class="col-md-12 item carousel-guest-books" data-aos="fade-up">
+            <div class="carousel-inner">
+                <h2>Ils nous ont fait confiance</h2>
+                <div class="text-content">
+                    <div class="background-text">
+                        <div class="col-md-12 comment">
+                            {{ comment.content|raw }}
+                        </div>
+                        <div class="col-md-12 name">
+                            <strong>{{ comment.name|raw }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-move-arrow">
+                <a class="carousel-control-prev prev-guest-books" href="#carouselExampleControls" role="button"
+                   data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next next-guest-books" href="#carouselExampleControls" role="button"
+                   data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+
+        {%- endfor -%}
+        {% if comments|length < 1 %}
+        <div class="not-found-content">
+            <p class="not-found d-flex align-items-center">{{ 'vistalid.guest_book.not_found'|trans({},
+                'default_template') }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>

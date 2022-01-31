@@ -1,0 +1,96 @@
+.informations-content {
+
+  .title-content {
+    padding: 2em 1em 3em 1em;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 4em;
+      color: #000;
+    }
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b08968;
+  }
+  .item-content {
+    padding: 0 1em;
+    width: 100%;
+
+    .company-name {
+      padding: 0 2em 2em 2em;
+
+      strong {
+        font-size: 2em;
+        opacity: 0.7;
+      }
+    }
+
+    .item {
+      a{
+        color: #000;
+      }
+      padding: 20px 1em;
+      width: 100%;
+
+      .icon-content {
+        position: relative;
+      }
+
+      .informations {
+        padding: 10px 0 0 0;
+      }
+
+      i {
+        opacity: 0.1;
+        font-size: 4em;
+        position: absolute;
+        right: 25px;
+        top: 10px;
+      }
+
+      p {
+        z-index: 2;
+        margin: 0;
+        letter-spacing: 2px;
+      }
+
+      strong {
+        font-size: 1.6em;
+        letter-spacing: 1px;
+        font-weight: 900;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .map-content {
+    margin-bottom: -7px;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .informations-content {
+
+    .informations-list {
+      padding: 0;
+    }
+
+    .title-content {
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 3em;
+      }
+    }
+
+    .item {
+      padding: 20px 2em !important;
+      width: 80% !important;
+    }
+  }
+}
