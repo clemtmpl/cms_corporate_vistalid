@@ -955,6 +955,175 @@
     width: 5%;
   }
 }
+.guest-book-content {
+  padding: 2em 0;
+  margin: 0;
+}
+.guest-book-content .carousel-guest-books {
+  position: relative;
+  transition: 0.3s ease-out;
+  min-height: 300px;
+  width: 100%;
+  background-color: #b08968;
+  display: flex;
+  align-items: center;
+}
+.guest-book-content .carousel-guest-books .carousel-inner {
+  padding: 1em 6em;
+}
+.guest-book-content .carousel-guest-books .carousel-inner h2, .guest-book-content .carousel-guest-books .carousel-inner .h2 {
+  width: 100%;
+  font-size: 4vh;
+  padding: 1em 0;
+  font-weight: 800;
+}
+.guest-book-content .carousel-guest-books .carousel-inner .text-content {
+  padding: 0;
+}
+.guest-book-content .carousel-guest-books .carousel-inner .text-content .background-text {
+  color: #f9fafb;
+}
+.guest-book-content .carousel-guest-books .carousel-inner .text-content .background-text .name {
+  color: black;
+}
+.guest-book-content .carousel-guest-books .carousel-move-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18vh;
+  height: 8vh;
+}
+.guest-book-content .carousel-guest-books .carousel-move-arrow .carousel-control-prev-icon, .guest-book-content .carousel-guest-books .carousel-move-arrow .carousel-control-next-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+.guest-book-content .carousel-guest-books .carousel-move-arrow .next-guest-books, .guest-book-content .carousel-guest-books .carousel-move-arrow .prev-guest-books {
+  width: 9vh;
+}
+.guest-book-content .carousel-guest-books .carousel-move-arrow .prev-guest-books {
+  background-color: #d2a47c;
+}
+.guest-book-content .carousel-guest-books .carousel-move-arrow .next-guest-books {
+  background-color: #8a6c52;
+}
+.guest-book-content .not-found-content {
+  padding: 50px;
+  margin: 30px 0 0 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+.guest-book-content .not-found-content .not-found {
+  font-size: 15px;
+  text-transform: initial;
+  letter-spacing: 0;
+  font-weight: 100;
+}
+.guest-book-content button:focus {
+  outline: none;
+}
+
+@media (max-width: 992px) {
+  .carousel-guest-books .carousel-inner {
+    padding: 1em;
+  }
+  .carousel-guest-books .carousel-inner h2, .carousel-guest-books .carousel-inner .h2 {
+    width: 100%;
+    font-size: 2vh;
+    padding: 3vh 0;
+    font-weight: 800;
+  }
+  .carousel-guest-books .carousel-move-arrow {
+    width: 14vh;
+    height: 7vh;
+  }
+  .carousel-guest-books .carousel-move-arrow .next-guest-books, .carousel-guest-books .carousel-move-arrow .prev-guest-books {
+    width: 7vh;
+  }
+}
+@media (max-width: 575.98px) {
+  .guest-book-content {
+    padding: 2em 0;
+  }
+}
+.informations-content .title-content {
+  padding: 2em 1em 3em 1em;
+}
+.informations-content .title-content h1, .informations-content .title-content .h1, .informations-content .title-content h2, .informations-content .title-content .h2, .informations-content .title-content h3, .informations-content .title-content .h3, .informations-content .title-content h4, .informations-content .title-content .h4, .informations-content .title-content h5, .informations-content .title-content .h5, .informations-content .title-content h6, .informations-content .title-content .h6 {
+  font-size: 4em;
+  color: #000;
+}
+.informations-content .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b08968;
+}
+.informations-content .item-content {
+  padding: 0 1em;
+  width: 100%;
+}
+.informations-content .item-content .company-name {
+  padding: 0 2em 2em 2em;
+}
+.informations-content .item-content .company-name strong {
+  font-size: 2em;
+  opacity: 0.7;
+}
+.informations-content .item-content .item {
+  padding: 20px 1em;
+  width: 100%;
+}
+.informations-content .item-content .item a {
+  color: #000;
+}
+.informations-content .item-content .item .icon-content {
+  position: relative;
+}
+.informations-content .item-content .item .informations {
+  padding: 10px 0 0 0;
+}
+.informations-content .item-content .item i {
+  opacity: 0.1;
+  font-size: 4em;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+}
+.informations-content .item-content .item p {
+  z-index: 2;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.informations-content .item-content .item strong {
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+.informations-content p {
+  margin: 0;
+  padding: 0;
+}
+.informations-content .map-content {
+  margin-bottom: -7px;
+}
+
+@media (max-width: 768px) {
+  .informations-content .informations-list {
+    padding: 0;
+  }
+  .informations-content .title-content h1, .informations-content .title-content .h1, .informations-content .title-content h2, .informations-content .title-content .h2, .informations-content .title-content h3, .informations-content .title-content .h3, .informations-content .title-content h4, .informations-content .title-content .h4, .informations-content .title-content h5, .informations-content .title-content .h5, .informations-content .title-content h6, .informations-content .title-content .h6 {
+    font-size: 3em;
+  }
+  .informations-content .item {
+    padding: 20px 2em !important;
+    width: 80% !important;
+  }
+}
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
