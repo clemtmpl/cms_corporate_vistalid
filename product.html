@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="actuality.html">Actuality</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="three_columns.html">Three Columns</a>
+    <a href="three_columns2.html">Three Columns2</a>
+    <a href="guest_books.html">Avis clients</a>
+    <a href="informations.html">Informations</a>
+    <a href="form_contact.html">Contact</a>
+    <a href="product.html">Product Page</a>
+</nav>
+{% extends ('base.html.twig'|templateViewName('default')) %}
+
+{% block title %}{{ product.seoTitle|default(product.name) }} - {{ parent() }}{% endblock %}
+{% block meta_keywords %}{{ product.seoKeywords }}{% endblock %}
+{% block meta_description %}{{ product.seoDescription }}{% endblock %}
+
+{% image 'bundles/template/templates/default/images/lightbox/loading.gif' output="images/loading.gif" %}{% endimage %}
+{% image 'bundles/template/templates/default/images/lightbox/close.png' output="images/close.png" %}{% endimage %}
+{% image 'bundles/template/templates/default/images/lightbox/next.png' output="images/next.png" %}{% endimage %}
+{% image 'bundles/template/templates/default/images/lightbox/prev.png' output="images/prev.png" %}{% endimage %}
+
+{% block content %}
+<div class="container-fluid product-page-content">
+    <div class="row row-eq-height">
+        <div class="row col-lg-6 col-md-12 image-content">
+            {% if product.image %}
+            <div class="col-md-12 img-principal">
+                <a href="{% path product.image, 'medium' %}" data-lightbox="{{ product.name }}"
+                   data-title="{{ product.image.name }}" class="content">
+                    {% media product.image, 'medium' with {'srcset': ['small', 'medium']} %}
+                </a>
+                {% else %}
+                {% image 'bundles/template/templates/default/images/products/empty.png' output="images/empty.png" %}
+                <img src="{{ asset_url }}" alt="empty image" title="empty image">
+                {% endimage %}
+                {% endif %}
+            </div>
+            <div class="row col-md-12 img-small-content">
+                <div class="col-lg-4 col-md-4 img-small-col">
+                    <div class="img-small">
+                        <img src="#" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 img-small-col">
+                    <div class="img-small">
+                        <img src="#" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 img-small-col">
+                    <div class="img-small">
+                        <img src="#" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 carousel-products">
+                <div class="carousel-inner">
+                    <a class="carousel-control-prev carousel-control-gen" href="#" role="button" data-slide="prev"
+                       data-aos="fade-right" data-aos-delay="400">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next carousel-control-gen" href="#" role="button" data-slide="next"
+                       data-aos="fade-left" data-aos-delay="500">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-content">
+                <div class="content">
+                    <div class="col-md-12">
+                        <h1>{{ product.name }}</h1>
+                    </div>
+                    {% if product.price %}
+                    <div class="container-fluid">
+                        <div class="badge badge-price">
+                            {{ product.price }} {{ 'vistalid.product.currency_label'|trans({}, 'default_template') }}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="col-md-12">
+                        {{ product.description|raw }}
+                    </div>
+                </div>
+            <div class="category-product-page">{{ product.productCategory }}</div>
+            <a href="{{ app.request.headers.get('referer') }}" class="btn btn-product-page"><i
+                    class="icofont-arrow-left"></i> {{ 'vistalid.post.back'|trans({}, 'default_template') }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
