@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        AOS.init();
+    </script>
+</head>
+<body>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="slider.html">Slider</a>
+    <a href="activity.html">Activity</a>
+    <a href="two_columns.html">Two Columns</a>
+    <a href="image-full-width-text.html">Image Full Width</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="actuality.html">Actuality</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="three_columns.html">Three Columns</a>
+    <a href="three_columns2.html">Three Columns2</a>
+    <a href="guest_books.html">Avis clients</a>
+    <a href="informations.html">Informations</a>
+    <a href="form_contact.html">Contact</a>
+</nav>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} form-contact-content" data-aos="fade-down"
+        {% if displayBackgroundPattern and mediaBackgroundPattern %}
+        style="background: url('{% path mediaBackgroundPattern, 'large' %}') no-repeat center center; background-size: cover;"
+        {% endif %}
+>
+    {{ text|raw }}
+    {% if isValid and isSend %}
+    <div class="container sending-message text-center" data-aos="fade-up">
+        <i class="icofont-send-mail icofont-5x"></i>
+        <p>{{ 'vistalid.form_contact.sending_message'|trans({}, 'default_template') }}</p>
+    </div>
+    {% else %}
+    <div class="container-fluid form-content" data-aos="fade-up">
+        {% if errors %}
+        <div class="container">
+            {% for error in errors %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ 'vistalid.form_contact.error.title_spam'|trans({}, 'default_template') }}</strong> {{ 'vistalid.form_contact.error.description_spam'|trans({}, 'default_template') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {{ form_start(form) }}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        {{ form_widget(form.first_name) }}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        {{ form_widget(form.last_name) }}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        {{ form_widget(form.phone) }}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-1">
+                    <div class="form-group">
+                        {{ form_widget(form.subject) }}
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-1">
+                    <div class="form-group ">
+                        {{ form_widget(form.message) }}
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-1">
+                    <div class="form-group">
+                        <label>{{ 'vistalid.form_contact.question'|trans({}, 'default_template') }}
+                            {{ spam.sentence|replace({
+                            '%plus%': 'vistalid.form_contact.spam.plus'|trans({}, 'default_template'),
+                            '%zero%': 'vistalid.form_contact.spam.zero'|trans({}, 'default_template'),
+                            '%un%': 'vistalid.form_contact.spam.un'|trans({}, 'default_template'),
+                            '%deux%': 'vistalid.form_contact.spam.deux'|trans({}, 'default_template'),
+                            '%trois%': 'vistalid.form_contact.spam.trois'|trans({}, 'default_template'),
+                            '%quatre%': 'vistalid.form_contact.spam.quatre'|trans({}, 'default_template'),
+                            '%cinq%': 'vistalid.form_contact.spam.cinq'|trans({}, 'default_template'),
+                            '%six%': 'vistalid.form_contact.spam.six'|trans({}, 'default_template'),
+                            '%sept%': 'vistalid.form_contact.spam.sept'|trans({}, 'default_template'),
+                            '%huit%': 'vistalid.form_contact.spam.huit'|trans({}, 'default_template'),
+                            '%neuf%': 'vistalid.form_contact.spam.neuf'|trans({}, 'default_template'),
+                            '%dix%': 'vistalid.form_contact.spam.dix'|trans({}, 'default_template')
+                            }) }}</label>
+                        {{ form_widget(form.question) }}
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group ">
+                        <div class="form-check">
+                            {{ form_widget(form.legal) }}
+                            <label class="form-check-label"
+                                   for="contact_legal">{{ 'vistalid.form_contact.checkbox'|trans({}, 'default_template') }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-1">
+                    <div class="form-group text-right">
+                        {{ form_widget(form.submit_contact) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_widget(form.contact_verification, {value: spam.result }) }}
+        {{ form_widget(form.selected_society, {value: set_to == null ? null : company.email }) }}
+        {{ form_end(form) }}
+
+    </div>
+    <div class="container">
+        <p class="legal-form">**
+            {{ 'vistalid.form_contact.legal'|trans({}, 'default_template')|replace({
+            '%name%': company.name|default(''),
+            '%address%': company.address|default(''),
+            '%email%': company.email|default(''),
+            '%siret%': company.siret|default(''),
+            })|raw }}
+        </p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

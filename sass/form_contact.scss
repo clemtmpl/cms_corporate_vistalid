@@ -1,0 +1,33 @@
+.form-contact-content{
+  padding: 2em 5em;
+  background-color: #fff;
+  .form-group{
+    padding: 0 5px;
+  }
+  .form-content{
+    padding: 3em 0 1em 0;
+  }
+  .form-control{
+    border-radius: 0;
+  }
+  .btn-contact-form{
+    width: 100%;
+    border-radius: 0;
+  }
+  .recaptcha-text{
+    text-align: center;
+  }
+  .legal-form{
+    font-size: 0.7em;
+  }
+  option {
+    color: #222;
+  }
+}
+
+// Small devices (landscape phones, less than 575.98px)
+@media (max-width: 575.98px) {
+  .form-contact-content {
+    padding: 2em 1em;
+  }
+}
