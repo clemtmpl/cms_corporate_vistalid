@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-sticky">
+        <div class="sidebar-header" href="{{ path('homepage') }}">
+            {% if has_config('logo') %}
+            {% media get_config('logo'), 'small' %}
+            <div class="container-fluid text-center p-3">
+                <strong>{{ get_config('site_title') }}</strong>
+            </div>
+            {% else %}
+            {{ get_config('site_title') }}
+            {% endif %}
+        </div>
+        {% if  get_config('call_to_action_menu')|length > 2 %}
+        <li class="d-flex justify-content-center">
+            <a class="nav-link btn btn-call-to-action"
+               target="_blank"
+               href="{% if get_config('call_to_action_menu_external_link')|length > 2 %}{{ get_config('call_to_action_menu_external_link') }}{% else %}{% if get_config('call_to_action_menu_page') %}{{ path(get_config('call_to_action_menu_page')) }}{% endif %}{% endif %}">{{ get_config('call_to_action_menu') }}</a>
+        </li>
+        {% endif %}
+        {{ knp_menu_render('main', { template: 'main_side_menu.html.twig'|templateViewName('default'), currentClass: 'active' }) }}
+        {{ locale_switcher(locale_switcher_route|default(null), null, 'locale_switcher.html.twig'|templateViewName('default')) }}
+        <div class="social-network">
+            {% if get_config('facebook')|length > 2 or get_config('instagram')|length > 2 or get_config('twitter')|length > 2 or get_config('linkedin')|length > 2 %}
+            <ul>
+                {% if get_config('facebook')|length > 2 %}
+                <li>
+                    <a target="_blank" href="{{ get_config('facebook') }}">
+                        <i class="icofont-facebook"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% if get_config('instagram')|length > 2 %}
+                <li>
+                    <a target="_blank" href="{{ get_config('instagram') }}">
+                        <i class="icofont-instagram"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% if get_config('twitter')|length > 2 %}
+                <li>
+                    <a target="_blank" href="{{ get_config('twitter') }}">
+                        <i class="icofont-twitter"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% if get_config('linkedin')|length > 2 %}
+                <li>
+                    <a target="_blank" href="{{ get_config('linkedin') }}">
+                        <i class="icofont-linkedin"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+</body>
+</html>
