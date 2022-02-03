@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} container-fluid">
+    <div class="row two-columns-presentation-content">
+        {% if mediaLeft %}
+        <div class="col-md-6 bloc-left" data-aos="fade-up">
+            <a class="img-left"
+               href="{{ path(pageLeft) }}"
+               style="background: url('{% path mediaLeft, 'large' %}') no-repeat center center; width: 100%; background-size: cover;">
+                <div class="opacity-left"></div>
+            </a>
+            {% if textLeft %}
+            <div class="container-fluid text-content">
+                <div class="logo-content" data-aos="fade-up">
+                    {% if displayLogoLeft %}
+                    {% if logoLeft == 'logo' %}
+                    {% if has_config('logo') %}
+                    {% media get_config('logo'), 'medium' with {'srcset': ['small']} %}
+                    {% endif %}
+                    {% else %}
+                    {% if has_config('logo_2') %}
+                    {% media get_config('logo_2'), 'medium' with {'srcset': ['small']} %}
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="container-fluid" data-aos="fade-down" data-aos-delay="200">
+                    {{ textLeft|raw }}
+                </div>
+                {% if wordLeft %}
+                <div class="container-fluid typewrite-content">
+                    <p class="typewrite" data-period="2000"
+                       data-type='[ {{ wordLeft }} ]'></p>
+                </div>
+                {% endif %}
+                <div class="container-fluid d-flex justify-content-center btn-two-columns-presentation-content">
+                    {%- for company in companiesLeft|filter(company => company.phone) -%}
+                    {# Filtre pour avoir que les companies avec phone #}
+                    <a href="tel:{{ company.phone }}"
+                       class="btn btn-two-columns-presentation mr-4" data-aos="fade-right"
+                       data-aos-delay="300"><i class="icofont-phone"></i> {{ company.phone }}</a>
+                    {%- endfor -%}
+                    {% if call_to_action_textLeft %}
+                    <a {% if external_linkLeft %}target="_blank"
+                       {% endif %}href="{% if external_linkLeft %}{{ external_linkLeft }}{% else %}{{ path(call_to_action_pageLeft) }}{% endif %}"
+                       class="btn btn-two-columns-presentation-call-to-action" data-aos="fade-left"
+                       data-aos-delay="300">{{ call_to_action_textLeft }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if mediaRight %}
+        <div class="col-md-6 bloc-right" data-aos="fade-down">
+            <a class="img-right"
+               href="{{ path(pageRight) }}"
+               style="background: url('{% path mediaRight, 'large' %}') no-repeat center center; width: 100%; background-size: cover;">
+                <div class="opacity-right"></div>
+            </a>
+            {% if textRight %}
+            <div class="container-fluid text-content">
+                <div class="logo-content" data-aos="fade-up">
+                    {% if displayLogoRight %}
+                    {% if logoRight == 'logo' %}
+                    {% if has_config('logo') %}
+                    {% media get_config('logo'), 'medium' with {'srcset': ['small']} %}
+                    {% endif %}
+                    {% else %}
+                    {% if has_config('logo_2') %}
+                    {% media get_config('logo_2'), 'medium' with {'srcset': ['small']} %}
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="col-md-12" data-aos="fade-down" data-aos-delay="300">
+                    {{ textRight|raw }}
+                </div>
+                {% if wordRight %}
+                <div class="container-fluid typewrite-content">
+                    <p class="typewrite" data-period="2000"
+                       data-type='[ {{ wordRight }} ]'></p>
+                </div>
+                {% endif %}
+                <div class="container-fluid d-flex justify-content-center btn-two-columns-presentation-content">
+                    {%- for company in companiesRight|filter(company => company.phone) -%}
+                    {# Filtre pour avoir que les companies avec phone #}
+                    <a href="tel:{{ company.phone }}"
+                       class="btn btn-two-columns-presentation mr-4" data-aos="fade-right"
+                       data-aos-delay="200"><i class="icofont-phone"></i> {{ company.phone }}</a>
+                    {%- endfor -%}
+                    {% if call_to_action_textRight %}
+                    <a {% if external_linkRight %}target="_blank"
+                       {% endif %}href="{% if external_linkRight %}{{ external_linkRight }}{% else %}{{ path(call_to_action_pageRight) }}{% endif %}"
+                       class="btn btn-two-columns-presentation-call-to-action" data-aos="fade-left"
+                       data-aos-delay="300">{{ call_to_action_textRight }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if displayBottomPattern %}
+        {% if mediaBottomPattern %}
+        <div class="bottom-pattern"
+             style="background: url('{% path mediaBottomPattern, 'large' %}') no-repeat center center; width: 100%; background-size: cover;"></div>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

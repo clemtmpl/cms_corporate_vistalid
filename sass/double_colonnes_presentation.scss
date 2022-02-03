@@ -1,0 +1,173 @@
+.two-columns-presentation-content {
+  height: 92vh;
+  z-index: 1;
+  position: relative;
+  margin: 0;
+
+  h1 {
+    font-size: 4.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  .bloc-left, .bloc-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo-content {
+      display: flex;
+      justify-content: center;
+    }
+
+  }
+
+  .img-left, .img-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+
+    &:hover {
+      filter: blur(0.3em);
+    }
+  }
+
+  .opacity-left, .opacity-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  .text-content {
+    z-index: 2;
+    pointer-events: none;
+
+    .typewrite-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .btn-two-columns-presentation-content {
+    pointer-events: all;
+    margin-top: 2vh;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .bottom-pattern {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+  }
+  .btn-two-columns-presentation-call-to-action{
+    pointer-events: all;
+  }
+
+}
+
+// Small devices (landscape phones, less than 1199.98px)
+@media (max-width: 1199.98px) {
+  .two-columns-presentation-content {
+    height: 92vh;
+    z-index: 1;
+    position: relative;
+
+    h1 {
+      font-size: 3.5em;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 992px)
+@media (max-width: 992px) {
+  .two-columns-presentation-content {
+    height: 100vh;
+
+    h1, h2, h3, h4, h5, h6, p, .bottom-pattern {
+      padding: 0;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 1em;
+    }
+
+    .bottom-pattern {
+      height: 50px;
+    }
+
+    .logo-content {
+      img {
+        max-height: 100px;
+        width: auto;
+      }
+    }
+
+    .btn-two-columns-presentation, .btn-two-columns-presentation-call-to-action {
+      width: 30%;
+      margin: 5px;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 575.98px)
+@media (max-width: 575.98px) {
+  .two-columns-presentation-content {
+    height: 100vh;
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 1.3em;
+    }
+
+    h3 {
+      font-size: 0.8em;
+    }
+
+    .bottom-pattern {
+      height: 50px;
+    }
+
+    .btn-two-columns-presentation, .btn-two-columns-presentation-call-to-action {
+      width: 60%;
+      margin: 5px;
+      margin-right: 0 !important;
+    }
+  }
+}
