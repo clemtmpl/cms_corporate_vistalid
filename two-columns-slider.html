@@ -1,0 +1,112 @@
+<div
+        {% if id %}
+        id="{{ id }}"
+        {% endif %}
+        class="{{ config.class }} two-columns-slider-content">
+    {% set sliderID =  random(0, 1000) %}
+    {% if displayMediaLeft %}
+    <div class="row row-eq-height align-items-center">
+        <div class="col-md-12 col-lg-6 img-content" data-aos="fade-right">
+            {% if slider %}
+            <div id="carousel{{ sliderID }}" class="carousel carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    <ol class="carousel-indicators">
+                        {% for slide in slider.slides %}
+                        {% if loop.index == 1 %}
+                        <li data-target="#carousel{{ sliderID }}" data-slide-to="0" class="active"></li>
+                        {% else %}
+                        <li data-target="#carousel{{ sliderID }}"
+                            data-slide-to="{{ loop.index - 1 }}"></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ol>
+                    {%- for slide in slider.slides -%}
+                    {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                        {% media slide.media, 'large' %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <span>{{ slide.text }}</span>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="carousel-item">
+                        {% media slide.media, 'large' %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <span>{{ slide.text }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {%- endfor -%}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-12 col-lg-6 text-content" data-aos="fade-left">
+            <div class="bloc-right"
+                 {% if displayBackgroundMedia and BackgroundMedia %}
+                 style="background: url('{% path BackgroundMedia, 'large' %}') no-repeat center center; background-size: cover;"
+                 {% endif %}
+            >
+                {{ text|raw }}
+                {% if displayLink %}
+                <div class="row d-flex justify-content-end p-3" data-aos="fade-up">
+                    <a href="{{ path(page) }}" class="btn btn-two-columns">{{ call_to_action_button }}</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row row-eq-height align-items-center">
+        <div class="col-md-12 col-lg-6 text-content" data-aos="fade-right">
+            <div class="bloc-left"
+                 {% if displayBackgroundMedia and BackgroundMedia %}
+                 style="background: url('{% path BackgroundMedia, 'large' %}') no-repeat center center; background-size: cover;"
+                 {% endif %}
+            >
+                {{ text|raw }}
+                {% if displayLink %}
+                <div class="row d-flex justify-content-end p-3" data-aos="fade-down">
+                    <a href="{{ path(page) }}" class="btn btn-two-columns">{{ call_to_action_button }}</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 img-content" data-aos="fade-left">
+            {% if slider %}
+            <div id="carousel{{ sliderID }}" class="carousel carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    <ol class="carousel-indicators">
+                        {% for slide in slider.slides %}
+                        {% if loop.index == 1 %}
+                        <li data-target="#carousel{{ sliderID }}" data-slide-to="0" class="active"></li>
+                        {% else %}
+                        <li data-target="#carousel{{ sliderID }}"
+                            data-slide-to="{{ loop.index - 1 }}"></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ol>
+                    {%- for slide in slider.slides -%}
+                    {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                        {% media slide.media, 'large' %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <span>{{ slide.text }}</span>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="carousel-item">
+                        {% media slide.media, 'large' %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <span>{{ slide.text }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {%- endfor -%}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
